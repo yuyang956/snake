@@ -53,8 +53,9 @@ h1 {
 }
 
 .speed-control {
-  margin-top: 20px;
+  margin: 20px 0;
   text-align: center;
+  position: static;
 }
 
 .speed-control label {
@@ -97,12 +98,13 @@ h1 {
   }
   .speed-control {
     position: fixed;
-    bottom: 120px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.9);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 0;
   }
 }
