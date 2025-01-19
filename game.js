@@ -8,11 +8,45 @@ let snake = [{x: 10, y: 10}];
 let food = {x: 15, y: 15};
 let direction = {x: 0, y: 0};
 let score = 0;
+let gameSpeed = 100;
+let gameTimeout;
+
+const speedInput = document.getElementById('speed');
+const speedValue = document.getElementById('speedValue');
+
+function updateSpeed(newSpeed) {
+  newSpeed = Math.max(50, Math.min(300, newSpeed)); // 确保在50-300范围内
+  gameSpeed = newSpeed;
+  speedInput.value = gameSpeed;
+  speedValue.textContent = `${gameSpeed}ms`;
+  clearTimeout(gameTimeout);
+  gameLoop();
+}
+
+speedInput.addEventListener('input', () => {
+  updateSpeed(Number(speedInput.value));
+});
+
+document.getElementById('speedUp').addEventListener('click', () => {
+  updateSpeed(gameSpeed - 10);
+});
+
+document.getElementById('speedDown').addEventListener('click', () => {
+  updateSpeed(gameSpeed + 10);
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') {
+    updateSpeed(gameSpeed - 10);
+  } else if (e.key === 'ArrowLeft') {
+    updateSpeed(gameSpeed + 10);
+  }
+});
 
 function gameLoop() {
   update();
   draw();
-  setTimeout(gameLoop, 100);
+  gameTimeout = setTimeout(gameLoop, gameSpeed);
 }
 
 function update() {

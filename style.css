@@ -52,8 +52,57 @@ h1 {
   background-color: #555;
 }
 
+.speed-control {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.speed-control label {
+  font-size: 16px;
+  color: #333;
+}
+
+.speed-control input[type="range"] {
+  width: 150px;
+  margin: 0 5px;
+}
+
+.speed-control button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.speed-control button:active {
+  background-color: #555;
+}
+
+.speed-control #speedValue {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
 @media (max-width: 768px) {
   .controls {
     display: flex;
+  }
+  .speed-control {
+    position: fixed;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
 }
